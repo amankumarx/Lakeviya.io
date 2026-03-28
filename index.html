@@ -67,7 +67,7 @@
             font-size: 10px;
         }
 
-        /* Founder section */
+        /* Founder section with image */
         .founder {
             display: flex;
             align-items: center;
@@ -89,6 +89,12 @@
             font-weight: bold;
             color: #4a2f6d;
             font-size: 14px;
+            overflow: hidden;
+        }
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .founder-name {
             font-weight: 500;
@@ -135,6 +141,13 @@
             font-weight: bold;
             font-size: 14px;
             flex-shrink: 0;
+            overflow: hidden;
+            background: #10a37f;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .user-avatar {
@@ -332,16 +345,20 @@
                 <span class="feature-badge">🎯 AI Assistants</span>
                 <span class="feature-badge">🤖 ChatGPT/Gemini/Perplexity/Claude</span>
             </div>
-            <!-- Founder Section -->
+            <!-- Founder Section with Image -->
             <div class="founder">
-                <div class="founder-avatar">AK</div>
+                <div class="founder-avatar">
+                    <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774624469/IMG_8558_kxbtyi.jpg" alt="Aman Kumar">
+                </div>
                 <div class="founder-name">Founder: Aman Kumar</div>
             </div>
         </div>
 
         <div class="messages" id="messages">
             <div class="message">
-                <div class="avatar ai-avatar">Z</div>
+                <div class="avatar ai-avatar">
+                    <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg" alt="Zooni">
+                </div>
                 <div class="bubble ai-bubble">
                     <strong>✨ Zooni AI - Super Search Edition ✨</strong><br><br>
                     Main ab <strong>Google Search + Wikipedia + Top AI Assistants</strong> ke saath hoon!<br><br>
@@ -583,7 +600,14 @@
             
             const avatar = document.createElement('div');
             avatar.className = `avatar ${isUser ? 'user-avatar' : 'ai-avatar'}`;
-            avatar.textContent = isUser ? 'U' : 'Z';
+            if (!isUser) {
+                const img = document.createElement('img');
+                img.src = "https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg";
+                img.alt = "Zooni";
+                avatar.appendChild(img);
+            } else {
+                avatar.textContent = 'U';
+            }
             
             const bubble = document.createElement('div');
             bubble.className = `bubble ${isUser ? 'user-bubble' : 'ai-bubble'}`;
@@ -614,7 +638,10 @@
             
             const avatar = document.createElement('div');
             avatar.className = 'avatar ai-avatar';
-            avatar.textContent = 'Z';
+            const img = document.createElement('img');
+            img.src = "https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg";
+            img.alt = "Zooni";
+            avatar.appendChild(img);
             
             const bubble = document.createElement('div');
             bubble.className = 'bubble ai-bubble';
